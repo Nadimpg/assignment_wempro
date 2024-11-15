@@ -22,7 +22,8 @@ class InputScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Input Types'),
+        backgroundColor: Colors.white,
+        title: CustomText(text: 'Input Types',fontSize: 16.h,fontWeight: FontWeight.w500,),
         centerTitle: true,
       ),
 
