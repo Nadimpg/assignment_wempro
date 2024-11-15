@@ -9,7 +9,7 @@ class AppRoute {
 
   static List<GetPage> routes = [
     ///========================Route Screens======================
-    GetPage(name: inputScreen, page: () => const InputScreen()),
+    GetPage(name: inputScreen, page: () => InputScreen()),
 
   ];
 }

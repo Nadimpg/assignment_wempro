@@ -1,9 +1,5 @@
 class AppStrings {
 
-  /// <============================RegPattern ======================================>
-  static RegExp emailRegexp = RegExp(r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+");
-
-  static RegExp passRegexp = RegExp(r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.{8,}$)');
 
 
 
@@ -250,11 +246,9 @@ class AppStrings {
   static const rejected ="Rejected";
   static const pending ="Pending";
 
-  static const String typeCHECKBOX = "CHECKBOX";
-  static const String typeRADIO = "RADIO";
-  static const String typeCHOOSE = "CHOOSE";
-  static const String typeIMAGE = "IMAGE";
-  static const String typeDATE = "DATE";
-  static const String typeINPUT = "INPUT";
+  static const String typeCHECKBOX = "checkbox";
+  static const String typeRADIO = "radio";
+  static const String typeCHOOSE = "dropdown";
+  static const String typeINPUT = "textfield";
   static const String index = "index";
 }
