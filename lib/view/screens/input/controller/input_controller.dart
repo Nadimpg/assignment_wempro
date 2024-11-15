@@ -49,6 +49,16 @@ class InputController extends GetxController {
     }
   }
 
+  ///<============================= selected Input list ============================>
+
+  List<String> outputList=[
+    "Include Outdoor Area : Single Family",
+    "Number of Bedrooms : 2",
+    "Number of Bathrooms : 2",
+    "Cleaning Frequency : Bi-weekly",
+    "Include garage cleaning : yes",
+  ];
+
   @override
   void onInit() {
     getInput();

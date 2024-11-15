@@ -104,9 +104,9 @@ class _CustomDropdownState extends State<CustomDropdown> {
           Text(
             widget.title,
             style: const TextStyle(
-              color: AppColors.blueNormal,
+              color: Colors.black,
               fontSize: 16,
-              fontWeight: FontWeight.w400,
+              fontWeight: FontWeight.w500,
             ),
           ),
           const SizedBox(height: 8),
@@ -179,6 +179,7 @@ class _CustomDropdownState extends State<CustomDropdown> {
             Padding(
               padding: const EdgeInsets.only(top: 8.0),
               child: TextFormField(
+
                 controller: _otherController,
                 decoration: InputDecoration(
                   hintText: 'Type your value here',

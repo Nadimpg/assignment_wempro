@@ -1,8 +1,10 @@
+import 'package:assignment_wempro/core/app_route/app_route.dart';
 import 'package:assignment_wempro/helper/general_error.dart';
 import 'package:assignment_wempro/utils/app_const.dart';
 import 'package:assignment_wempro/utils/app_static_string.dart';
 import 'package:assignment_wempro/view/screens/input/controller/input_controller.dart';
 import 'package:assignment_wempro/view/screens/no_internet/no_internet.dart';
+import 'package:assignment_wempro/view/widgets/custom_button/custom_button.dart';
 import 'package:assignment_wempro/view/widgets/custom_checkbox/custom_checkbox.dart';
 import 'package:assignment_wempro/view/widgets/custom_dropdown/custom_dropdown.dart';
 import 'package:assignment_wempro/view/widgets/custom_loader/custom_loader.dart';
@@ -14,19 +16,22 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 class InputScreen extends StatelessWidget {
-    InputScreen({super.key});
+  InputScreen({super.key});
 
-    InputController controller=Get.find<InputController>();
+  InputController controller = Get.find<InputController>();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
-        title: CustomText(text: 'Input Types',fontSize: 16.h,fontWeight: FontWeight.w500,),
+        title: CustomText(
+          text: AppStrings.inputTypes,
+          fontSize: 16.h,
+          fontWeight: FontWeight.w500,
+        ),
         centerTitle: true,
       ),
-
       body: Obx(() {
         switch (controller.rxRequestStatus.value) {
           case Status.loading:
@@ -43,46 +48,64 @@ class InputScreen extends StatelessWidget {
             );
           case Status.completed:
             return SingleChildScrollView(
-              padding: EdgeInsets.symmetric(vertical: 24.h,horizontal: 20.w),
+              padding: EdgeInsets.symmetric(vertical: 24.h, horizontal: 20.w),
               child: Column(
-                children: List.generate(
-                  controller.inputModel.value.jsonResponse!.attributes!.length,
+                children: [
+                  ///<========================= input types list ==========================>
+                  Column(
+                    children: List.generate(
+                      controller
+                          .inputModel.value.jsonResponse!.attributes!.length,
                       (index) {
+                        var inputList = controller
+                            .inputModel.value.jsonResponse?.attributes?[index];
 
-                    var inputList = controller.inputModel.value.jsonResponse?.attributes?[index];
-                    //print('============================== ${inputList.title}');
-                    if (inputList?.type == AppStrings.typeRADIO) {
-                      return CustomRadioButtonList(
-                        index: index,
-                        title: inputList?.title ?? "",
-                        options: inputList?.options ?? [],
-                      );
-                    }
-                    if (inputList?.type == AppStrings.typeCHECKBOX) {
-                      return CustomCheckboxList(
-                        index: index,
-                        title: inputList?.title ?? "",
-                        options: inputList?.options ?? [],
-                      );
-                    }
-                    if (inputList?.type == AppStrings.typeCHOOSE) {
-                      return CustomDropdown(
-                        onChanged: (val) {},
-                        index: index,
-                        title: inputList?.title ?? "",
-                        options: inputList?.options ?? [],
-                      );
-                    }
-                    if (inputList?.type == AppStrings.typeINPUT) {
-                      return CustomInputField(
-                        index: index,
-                        title: inputList?.title ?? "",
-                      );
-                    } else {
-                      return Container(); // or other widget for different types
-                    }
-                  },
-                ),
+                        if (inputList?.type == AppStrings.typeRADIO) {
+                          return CustomRadioButtonList(
+                            index: index,
+                            title: inputList?.title ?? "",
+                            options: inputList?.options ?? [],
+                          );
+                        }
+                        if (inputList?.type == AppStrings.typeCHECKBOX) {
+                          return CustomCheckboxList(
+                            index: index,
+                            title: inputList?.title ?? "",
+                            options: inputList?.options ?? [],
+                          );
+                        }
+                        if (inputList?.type == AppStrings.typeCHOOSE) {
+                          return CustomDropdown(
+                            onChanged: (val) {},
+                            index: index,
+                            title: inputList?.title ?? "",
+                            options: inputList?.options ?? [],
+                          );
+                        }
+                        if (inputList?.type == AppStrings.typeINPUT) {
+                          return CustomInputField(
+                            index: index,
+                            title: inputList?.title ?? "",
+                          );
+                        } else {
+                          return Container(); // or other widget for different types
+                        }
+                      },
+                    ),
+                  ),
+
+                  SizedBox(
+                    height: 24.h,
+                  ),
+
+                  ///<========================= submit button ==========================>
+                  CustomButton(
+                    ontap: () {
+                      Get.toNamed(AppRoute.outputScreen);
+                    },
+                    text: AppStrings.submit,
+                  ),
+                ],
               ),
             );
         }

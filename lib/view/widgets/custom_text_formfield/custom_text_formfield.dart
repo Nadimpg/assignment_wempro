@@ -11,7 +11,7 @@ class CustomTextField extends StatefulWidget {
     this.focusNode,
     this.keyboardType = TextInputType.text,
     this.textInputAction = TextInputAction.next,
-    this.cursorColor = AppColors.blueNormal,
+    this.cursorColor = Colors.black,
     this.inputTextStyle,
     this.textAlignVertical = TextAlignVertical.center,
     this.textAlign = TextAlign.start,
@@ -80,16 +80,9 @@ class _CustomTextFieldState extends State<CustomTextField> {
       //shadowColor:const Color(0xff9AC699),
       child: Container(
         padding: EdgeInsets.all(0.r),
-        decoration: BoxDecoration(
-          boxShadow:  [
-            BoxShadow(
-                offset: const Offset(0, 4),
-                blurRadius: 200.r,
-                color: const Color(0xffe0f9f7),),
-          ],
 
-        ),
         child: TextFormField(
+
           onFieldSubmitted: widget.onFieldSubmitted,
           onTap: () {
             widget.onTapClick();
@@ -138,10 +131,10 @@ class _CustomTextFieldState extends State<CustomTextField> {
                   child: obscureText
                       ?   const Icon(
                     Icons.visibility_off_outlined,
-                    color: AppColors.blueNormal,
+                    color: Colors.black,
                   )
                       : const Icon(Icons.visibility_outlined,
-                      color: AppColors.blueNormal),
+                      color: Colors.black),
                 ))
                 : widget.suffixIcon,
             suffixIconColor: widget.suffixIconColor,

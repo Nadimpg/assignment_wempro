@@ -4,6 +4,7 @@ import 'package:assignment_wempro/utils/app_static_string.dart';
 import 'package:assignment_wempro/view/screens/input/controller/input_controller.dart';
 import 'package:assignment_wempro/view/widgets/custom_text_formfield/custom_text_formfield.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 class CustomInputField extends StatefulWidget {
@@ -79,14 +80,15 @@ class _CustomInputFieldState extends State<CustomInputField> {
         Text(
           widget.title,
           style: const TextStyle(
-            color: AppColors.blueNormal,
+            color: Colors.black,
             fontSize: 16,
-            fontWeight: FontWeight.w400,
+            fontWeight: FontWeight.w500,
           ),
         ),
         const SizedBox(height: 8),
         CustomTextField(
-          fillColor: Colors.white,
+
+          fillColor: Colors.black12,
           textInputAction: TextInputAction.done,
           textEditingController: _controller,
           onFieldSubmitted: (val) {
@@ -102,6 +104,8 @@ class _CustomInputFieldState extends State<CustomInputField> {
           fieldBorderColor: Colors.transparent,
           focusBorderColor: AppColors.white,
           hintText: "Type here",
+        ),
+          SizedBox(height: 16.h
         ),
       ],
     );

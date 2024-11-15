@@ -1,4 +1,3 @@
-
 import 'dart:convert';
 import 'package:assignment_wempro/utils/app_colors.dart';
 import 'package:assignment_wempro/utils/app_static_string.dart';
@@ -47,7 +46,7 @@ class _CustomCheckboxState extends State<CustomCheckbox> {
             height: 20,
             decoration: BoxDecoration(
               border: Border.all(
-                color: AppColors.blueLight,
+                color: Colors.black,
                 width: 1,
               ),
               borderRadius: BorderRadius.circular(4),
@@ -55,10 +54,10 @@ class _CustomCheckboxState extends State<CustomCheckbox> {
             ),
             child: _value
                 ? const Icon(
-              Icons.check,
-              size: 18,
-              color: Colors.white,
-            )
+                    Icons.check,
+                    size: 18,
+                    color: Colors.black,
+                  )
                 : null,
           ),
           const SizedBox(width: 8),
@@ -86,7 +85,6 @@ class CustomCheckboxList extends StatefulWidget {
 }
 
 class _CustomCheckboxListState extends State<CustomCheckboxList> {
-
   InputController controller = Get.find<InputController>();
 
   late Map<String, bool> _selectedOptions;
@@ -104,9 +102,10 @@ class _CustomCheckboxListState extends State<CustomCheckboxList> {
 
     for (var item in controller.checkValue) {
       if (item[jsonEncode(AppStrings.title)] == jsonEncode(widget.title) &&
-          item[jsonEncode(AppStrings.index)] == jsonEncode(widget.index.toString())) {
+          item[jsonEncode(AppStrings.index)] ==
+              jsonEncode(widget.index.toString())) {
         List<String> savedOptions =
-        List<String>.from(jsonDecode(item[jsonEncode(AppStrings.value)]));
+            List<String>.from(jsonDecode(item[jsonEncode(AppStrings.value)]));
         for (var option in savedOptions) {
           _selectedOptions[option] = true;
         }
@@ -132,13 +131,13 @@ class _CustomCheckboxListState extends State<CustomCheckboxList> {
 
     Map<String, dynamic> newValue = {
       jsonEncode(AppStrings.title): jsonEncode(widget.title),
-      jsonEncode(AppStrings.value) :jsonEncode(selectedOptions),
+      jsonEncode(AppStrings.value): jsonEncode(selectedOptions),
       jsonEncode(AppStrings.index): jsonEncode(widget.index.toString()),
     };
 
     // Remove any existing entry with the same index
     controller.checkValue.removeWhere((item) =>
-    item[jsonEncode(AppStrings.index)] ==
+        item[jsonEncode(AppStrings.index)] ==
         jsonEncode(widget.index.toString()));
 
     // Add the updated entry
@@ -158,8 +157,8 @@ class _CustomCheckboxListState extends State<CustomCheckboxList> {
           widget.title,
           style: const TextStyle(
             fontSize: 16,
-            fontWeight: FontWeight.w400,
-            color: AppColors.blueNormal,
+            fontWeight: FontWeight.w500,
+            color: Colors.black,
           ),
           maxLines: 3,
           textAlign: TextAlign.start,
@@ -183,5 +182,3 @@ class _CustomCheckboxListState extends State<CustomCheckboxList> {
     );
   }
 }
-
-

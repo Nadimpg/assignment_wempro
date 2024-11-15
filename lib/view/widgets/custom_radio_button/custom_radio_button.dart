@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'package:assignment_wempro/utils/app_colors.dart';
 import 'package:assignment_wempro/utils/app_static_string.dart';
 import 'package:assignment_wempro/view/screens/input/controller/input_controller.dart';
 import 'package:flutter/material.dart';
@@ -138,8 +137,8 @@ class _CustomRadioButtonListState extends State<CustomRadioButtonList> {
         Text(
           widget.title,
           style: const TextStyle(
-            fontSize: 18,
-            fontWeight: FontWeight.bold,
+            fontSize: 16,
+            fontWeight: FontWeight.w500,
             color: Colors.black,
           ),
         ),
@@ -154,7 +153,7 @@ class _CustomRadioButtonListState extends State<CustomRadioButtonList> {
                 selectedWidget: Row(
                   children: [
                     const Icon(Icons.radio_button_checked,
-                        color: AppColors.blueLight),
+                        color: Colors.black),
                     const SizedBox(width: 8),
                     Text(option),
                   ],
@@ -162,7 +161,7 @@ class _CustomRadioButtonListState extends State<CustomRadioButtonList> {
                 unselectedWidget: Row(
                   children: [
                     const Icon(Icons.radio_button_unchecked,
-                        color: Colors.grey),
+                        color: Colors.black),
                     const SizedBox(width: 8),
                     Text(option),
                   ],

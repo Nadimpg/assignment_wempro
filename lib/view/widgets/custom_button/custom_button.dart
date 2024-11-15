@@ -40,7 +40,7 @@ class CustomButton extends StatelessWidget {
     this.isfillColor = true,
     this.isText = true,
     this.content,
-    this.fontSize = 14, this.buttonColor=AppColors.greenNormal,
+    this.fontSize = 14, this.buttonColor=AppColors.green,
   });
 
   @override
